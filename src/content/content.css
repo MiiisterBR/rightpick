@@ -1,0 +1,404 @@
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+
+/* Button Styles */
+.dk-price-checker-btn, .dk-reviews-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Will be overridden by JS if needed, but 100% is usually safe */
+  background-color: #8e24aa !important; /* Purple - Force override */
+  color: white;
+  font-size: 1.2rem; /* Adjusted to match DK button visual */
+  font-weight: 700;
+  border-radius: 8px; /* Default, JS will override */
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin-top: 12px; /* Space between Add to Cart and this */
+  z-index: 1;
+  font-family: 'Vazirmatn', sans-serif !important; /* Vazir Font */
+  box-sizing: border-box;
+  padding: 0 16px;
+  min-height: 48px; /* Fallback */
+}
+
+/* Apply font to all extension elements */
+.dk-pc-toast, .dk-pc-modal, .dk-pc-item, .dk-reviews-modal, .dk-reviews-btn {
+  font-family: 'Vazirmatn', sans-serif !important;
+}
+
+/* Golden Rotating Border */
+.dk-price-checker-btn, .dk-reviews-btn {
+  /* Ensure container clips the overflowing spinner */
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.dk-price-checker-btn::before, .dk-reviews-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1000px; /* Large enough to cover the button during rotation */
+  height: 1000px;
+  background: conic-gradient(transparent 70%, #ffd700);
+  transform: translate(-50%, -50%);
+  animation: rotate-border 3s linear infinite;
+  z-index: -2;
+}
+
+.dk-price-checker-btn::after, .dk-reviews-btn::after {
+  content: '';
+  position: absolute;
+  inset: 3px; /* Border thickness */
+  background: #8e24aa; /* Match button bg */
+  border-radius: 6px; /* Slightly less than button radius */
+  z-index: -1;
+}
+
+@keyframes rotate-border {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.dk-price-checker-btn-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* Toast Notification */
+.dk-pc-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: #2d2d2d;
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  z-index: 1000000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transform: translateY(150%);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-family: inherit;
+  border-right: 4px solid #ffd700;
+  min-width: 280px;
+}
+
+.dk-pc-toast.show {
+  transform: translateY(0);
+}
+
+.dk-pc-toast-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #ffd700;
+}
+
+.dk-pc-toast-msg {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Alert Pulse Animation */
+@keyframes pulse-gold {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(255, 215, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+  }
+}
+
+.dk-pc-btn-alert {
+  animation: pulse-gold 2s infinite;
+  background-color: #7b1fa2; /* Darker Purple */
+}
+
+/* Notification Badge (Bell) */
+.dk-pc-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ef394e; /* Red */
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  z-index: 10;
+  animation: shake-bell 1s ease-in-out infinite;
+}
+
+@keyframes shake-bell {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(15deg); }
+  40% { transform: rotate(-10deg); }
+  60% { transform: rotate(5deg); }
+  80% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.dk-pc-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999; /* Very high z-index */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+}
+
+.dk-pc-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dk-pc-modal {
+  background: white;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  font-family: inherit;
+  direction: rtl; /* Ensure RTL for Persian */
+}
+
+.dk-pc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.dk-pc-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.dk-pc-lang-toggle {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #666;
+  padding: 4px 8px;
+  margin: 0 8px;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.dk-pc-lang-toggle:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.dk-pc-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  padding: 0 8px;
+}
+
+.dk-pc-tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.dk-pc-tab {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  background: #f9f9f9;
+  border: none;
+  font-weight: 600;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+.dk-pc-tab.active {
+  background: white;
+  border-bottom: 2px solid #8e24aa;
+  color: #8e24aa;
+}
+
+.dk-pc-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.dk-pc-tab-content {
+  display: none;
+}
+
+.dk-pc-tab-content.active {
+  display: block;
+}
+
+/* Result Item Styles */
+.dk-pc-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #f0f0f1;
+  margin-bottom: 12px;
+  border-radius: 12px; /* Modern rounded corners */
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+}
+
+.dk-pc-item:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-color: #dcdcdf;
+  transform: translateY(-1px);
+}
+
+.dk-pc-item img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  margin-left: 16px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  padding: 4px;
+}
+
+.dk-pc-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.dk-pc-item-title {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  color: #424750;
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.dk-pc-item-price {
+  font-size: 1.25rem; /* Large and clear */
+  font-weight: 800;
+  color: #ef394e; /* Digikala Red for price emphasis */
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .dk-pc-modal {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  }
+
+  .dk-pc-header {
+    border-bottom-color: #333;
+  }
+
+  .dk-pc-close {
+    color: #ccc;
+  }
+
+  .dk-pc-close:hover {
+    color: #fff;
+  }
+
+  .dk-pc-lang-toggle {
+    border-color: #444;
+    color: #aaa;
+  }
+  
+  .dk-pc-lang-toggle:hover {
+    background: #333;
+    color: #fff;
+  }
+
+  .dk-pc-tabs {
+    border-bottom-color: #333;
+  }
+
+  .dk-pc-tab {
+    background-color: #2d2d2d;
+    color: #aaa;
+  }
+
+  .dk-pc-tab.active {
+    background-color: #1e1e1e;
+    color: #ce93d8; /* Lighter Purple */
+    border-bottom-color: #ce93d8;
+  }
+
+  .dk-pc-item {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: #eee;
+  }
+
+  .dk-pc-item:hover {
+    background-color: #383838;
+    border-color: #666;
+  }
+
+  .dk-pc-item-title {
+    color: #f0f0f0;
+  }
+
+  .dk-pc-item-price {
+    color: #ff8a80; /* Lighter Red */
+  }
+  
+  .dk-pc-loading {
+    color: #aaa;
+  }
+  
+  /* Adjust image background if needed, usually product images have white bg */
+  .dk-pc-item img {
+    background-color: #fff; 
+    border-radius: 4px;
+  }
+}

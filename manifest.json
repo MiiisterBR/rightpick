@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_appName__",
+  "version": "1.0.0",
+  "description": "__MSG_appDescription__",
+  "default_locale": "fa",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "dk-price-checker-br@extension",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "icons": {
+    "16": "src/assets/icon/icon16.png",
+    "48": "src/assets/icon/icon48.png",
+    "128": "src/assets/icon/icon128.png",
+    "256": "src/assets/icon/icon256.png"
+  },
+  "background": {
+    "scripts": ["src/background/background.js"],
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.digikala.com/product/*",
+        "*://*.torob.com/*",
+        "*://*.esam.ir/*",
+        "*://esam.ir/*",
+        "*://torob.com/*"
+      ],
+      "js": ["src/content/content.js"],
+      "css": ["src/content/content.css"]
+    }
+  ],
+  "host_permissions": [
+    "*://*.digikala.com/*",
+    "*://api.torob.com/*",
+    "*://api.esam.ir/*",
+    "*://api2.esam.ir/*"
+  ],
+  "permissions": [
+    "storage"
+  ]
+}

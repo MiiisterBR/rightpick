@@ -1,0 +1,34 @@
+{
+  "appName": {
+    "message": "Digikala Price Checker",
+    "description": "Extension name"
+  },
+  "appDescription": {
+    "message": "Check Digikala product prices on other websites",
+    "description": "Extension description"
+  },
+  "btnText": {
+    "message": "Check Other Prices",
+    "description": "Button text"
+  },
+  "loading": {
+    "message": "Loading...",
+    "description": "Loading message"
+  },
+  "torob": {
+    "message": "Torob",
+    "description": "Torob website name"
+  },
+  "esam": {
+    "message": "Esam",
+    "description": "Esam website name"
+  },
+  "close": {
+    "message": "Close",
+    "description": "Close button"
+  },
+  "noResult": {
+    "message": "No result found",
+    "description": "No result message"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "appName": {
+    "message": "مقایسه قیمت در دیجیکالا",
+    "description": "نام افزونه"
+  },
+  "appDescription": {
+    "message": "مشاهده قیمت محصول دیجیکالا در سایت‌های دیگر",
+    "description": "توضیحات افزونه"
+  },
+  "btnText": {
+    "message": "قیمت در سایت‌های دیگر",
+    "description": "متن دکمه"
+  },
+  "loading": {
+    "message": "در حال بارگذاری...",
+    "description": "پیام انتظار"
+  },
+  "torob": {
+    "message": "ترب",
+    "description": "نام سایت ترب"
+  },
+  "esam": {
+    "message": "ایسام",
+    "description": "نام سایت ایسام"
+  },
+  "close": {
+    "message": "بستن",
+    "description": "دکمه بستن"
+  },
+  "noResult": {
+    "message": "نتیجه‌ای یافت نشد",
+    "description": "پیام عدم یافتن نتیجه"
+  }
+}
