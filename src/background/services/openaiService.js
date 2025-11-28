@@ -35,14 +35,14 @@ export async function aiSelectProduct(apiKey, targetName, candidates) {
     // Simplify candidates to save tokens
     const simplified = candidates.map(p => ({
         id: p.id,
-        title: p.title_fa || p.title,
-        model: p.product_code || "" // Digikala sometimes has this
+        title_fa: p.title_fa || p.title,
+        title_en: p.title_en || "", // Crucial for model numbers
     }));
 
     const messages = [
         {
             role: "system",
-            content: "You are a precise shopping assistant. You will receive a 'Target Product Name' and a 'List of Candidates'. Your task is to identify the candidate that is the EXACT same product as the target (ignoring minor naming variations). Return JSON: {\"matchId\": <id> or null}."
+            content: "You are an expert product matcher. Your task is to find the product in the 'Candidates' list that best matches the 'Target Product'. \n\nRules:\n1. Prioritize matching Brand and specific Model Number (e.g. 'A6140C', 'iPhone 13').\n2. Ignore minor differences like color, warranty, or word order.\n3. If the target specifies a key spec (e.g. '140W'), the candidate MUST have it.\n4. If multiple candidates match, choose the one with the most similar title.\n5. If NO candidate is a good match, return null.\n\nReturn JSON: {\"matchId\": <id> or null}."
         },
         {
             role: "user",
