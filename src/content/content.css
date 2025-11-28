@@ -20,6 +20,15 @@
   box-sizing: border-box;
   padding: 0 16px;
   min-height: 48px; /* Fallback */
+  line-height: 1; /* Fix vertical alignment issues */
+}
+
+/* Specific adjustments for Reviews Button to ensure centering */
+.dk-reviews-btn {
+    padding: 12px 0 !important; /* Ensure consistent padding */
+    font-size: 13px !important;
+    line-height: 1 !important;
+    min-height: 40px !important;
 }
 
 /* Apply font to all extension elements */

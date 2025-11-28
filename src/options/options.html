@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تنظیمات افزونه مقایسه قیمت دیجی‌کالا</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="../assets/icon/icon48.png" alt="Logo">
+            <h1>تنظیمات افزونه</h1>
+        </div>
+
+        <div class="form-group">
+            <label for="apiKey">کلید API چت‌جی‌پی‌تی (ChatGPT API Key):</label>
+            <input type="password" id="apiKey" placeholder="sk-...">
+            <p class="help-text">این کلید برای قابلیت‌های هوشمند آینده استفاده خواهد شد.</p>
+        </div>
+
+        <div class="form-group">
+            <label for="language">زبان افزونه (Language):</label>
+            <select id="language">
+                <option value="fa">فارسی</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+
+        <button id="saveBtn">ذخیره تنظیمات</button>
+        <div id="status" class="status"></div>
+    </div>
+    <script src="options.js"></script>
+</body>
+</html>

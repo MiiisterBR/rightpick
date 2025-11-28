@@ -43,12 +43,6 @@ function toggleLanguage() {
     currentLang = currentLang === 'fa' ? 'en' : 'fa';
     chrome.storage.local.set({ language: currentLang });
     
-    // Update UI
-    // Update Toggle Button Text
-    const toggleBtn = document.querySelector('.dk-pc-lang-toggle');
-    if(toggleBtn) toggleBtn.innerText = currentLang === 'fa' ? 'EN' : 'FA';
-
-    // Update Title
     const title = document.querySelector('.dk-pc-title');
     if(title) title.innerText = getText('appDescription');
     
@@ -222,17 +216,17 @@ function createReviewsButton(targetBtn, productTitle) {
     btn.style.marginTop = '12px';
     btn.style.backgroundColor = '#8e24aa'; // Digikala Purple
     btn.style.color = 'white';
-    btn.style.padding = '10px 0'; // Full width text align center
+    // Padding, font size etc moved to CSS class .dk-reviews-btn
     btn.style.borderRadius = '8px';
     btn.style.cursor = 'pointer';
     btn.style.textAlign = 'center';
     btn.style.fontWeight = 'bold';
-    btn.style.fontSize = '13px';
     btn.style.width = '100%'; // Force full width
-    btn.style.display = 'block';
+    btn.style.display = 'flex'; // Changed to flex for centering
+    btn.style.alignItems = 'center';
+    btn.style.justifyContent = 'center';
     btn.style.boxSizing = 'border-box';
     btn.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
-    btn.style.lineHeight = '1.5';
     
     btn.onclick = (e) => {
         e.preventDefault();
@@ -622,18 +616,12 @@ function createModal() {
   title.className = 'dk-pc-title';
   title.innerText = getText("appDescription");
   
-  const langBtn = document.createElement('button');
-  langBtn.className = 'dk-pc-lang-toggle';
-  langBtn.innerText = currentLang === 'fa' ? 'EN' : 'FA';
-  langBtn.onclick = toggleLanguage;
-
   const closeBtn = document.createElement('button');
   closeBtn.className = 'dk-pc-close';
   closeBtn.innerHTML = '&times;';
   closeBtn.onclick = closeModal;
   
   header.appendChild(title);
-  header.appendChild(langBtn);
   header.appendChild(closeBtn);
   
   // Tabs

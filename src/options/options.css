@@ -1,0 +1,115 @@
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin: 0;
+    direction: rtl;
+}
+
+.container {
+    max-width: 400px; /* Reduced width */
+    margin: 20px auto;
+    background: white;
+    padding: 20px; /* Reduced padding */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px; /* Reduced margin */
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.header img {
+    width: 40px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    object-fit: contain;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.2rem; /* Slightly smaller font */
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Reduced margin */
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 8px 12px; /* Compact padding */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+
+/* API Key Specific Style */
+#apiKey {
+    direction: ltr;
+    text-align: left;
+    font-family: monospace; /* Better for keys */
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #8e24aa;
+}
+
+.help-text {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+button {
+    background-color: #8e24aa;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #7b1fa2;
+}
+
+.status {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    min-height: 20px;
+}
+
+.status.success {
+    color: #4caf50;
+}
+
+.status.error {
+    color: #f44336;
+}
