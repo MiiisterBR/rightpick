@@ -1,6 +1,5 @@
-# Digikala Price Checker & Reviews
-
-A browser extension that helps users verify Digikala product prices across other popular Iranian marketplaces (Torob and Esam) and view Digikala user reviews directly on those platforms.
+# RightPick
+A smart shopping assistant that checks product prices on Digikala and shows real Digikala user reviews while you browse on Torob and Esam helping you make the best possible choice.
 
 ## Features
 
@@ -72,8 +71,8 @@ To package the extension for submission:
 - `storage`: To save user language preferences.
 - `host_permissions`:
   - `*://*.digikala.com/*`: To inject button and fetch reviews.
-  - `*://*.torob.com/*`: To inject button on Torob product pages.
-  - `*://*.esam.ir/*`: To inject button on Esam product pages.
+  - `*://*.torob.com/p/*`: To inject button on Torob product pages.
+  - `*://*.esam.ir/item/*`: To inject button on Esam product pages.
   - `*://api.torob.com/*` & `*://api.esam.ir/*`: To fetch price data.
 
 ## License

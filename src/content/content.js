@@ -4,8 +4,8 @@ let currentLang = 'fa';
 
 const translations = {
   fa: {
-    appName: "مقایسه قیمت دیجی‌کالا",
-    appDescription: "مشاهده قیمت محصول دیجی‌کالا در سایت‌های دیگر",
+    appName: "RightPick",
+    appDescription: "دستیار هوشمند خرید که قیمت‌های دیجی‌کالا را بررسی کرده و نظرات کاربران را هنگام گشت‌وگذار در ترب و ایسام نمایش می‌دهد.",
     btnText: "قیمت در سایت‌های دیگر",
     loading: "در حال بارگذاری...",
     torob: "ترب",
@@ -19,8 +19,8 @@ const translations = {
     toastMsgPart4: "پیدا شد."
   },
   en: {
-    appName: "Digikala Price Checker",
-    appDescription: "Check Digikala product prices on other websites",
+    appName: "RightPick",
+    appDescription: "A smart shopping assistant that checks product prices on Digikala and shows real user reviews on Torob and Esam.",
     btnText: "Check Other Prices",
     loading: "Loading...",
     torob: "Torob",

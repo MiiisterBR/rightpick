@@ -1,12 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "Digikala Price Checker & Reviews",
+  "name": "RightPick",
   "version": "1.1.0",
-  "description": "A browser extension that helps users verify Digikala product prices across other popular Iranian marketplaces (Torob and Esam) and view Digikala user reviews directly on those platforms.",
+  "description": "A smart shopping assistant that checks product prices on Digikala and shows real Digikala user reviews while you browse on Torob and Esam helping you make the best possible choice.",
   "default_locale": "fa",
   "browser_specific_settings": {
     "gecko": {
-      "id": "dk-price-checker-misterbr@extension",
+      "id": "misterbr-rightpick@extension",
       "strict_min_version": "140.0",
       "data_collection_permissions": {
         "required": ["none"]
