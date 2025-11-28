@@ -23,6 +23,40 @@ A smart shopping assistant that checks product prices on Digikala and shows real
   - Clean, responsive modal design.
   - Dark mode support.
 
+## Configuration
+
+You can customize the extension settings, including the **Language** (Persian/English) and **AI Features**.
+
+### How to Access Settings:
+1.  Right-click on the **RightPick extension icon** in your browser toolbar.
+2.  Select **Options** (or **تنظیمات**).
+
+### Available Settings:
+-   **ChatGPT API Key:** Enter your OpenAI API Key to enable smart features.
+-   **Language:** Switch between Persian (Farsi) and English.
+-   **Delete API Key:** Remove your stored API key.
+
+## AI Features (ChatGPT Integration)
+
+RightPick can optionally use **OpenAI's ChatGPT** to significantly improve accuracy.
+
+### capabilities:
+1.  **Smart Price Filtering:**
+    *   When checking prices on Torob or Esam, the AI analyzes the search results.
+    *   It filters out irrelevant items (e.g., accessories, cases, or different models) and keeps only the **exact matches**.
+    *   *Result:* You see a clean list of actual prices for your specific product, not a cluttered list of unrelated items.
+
+2.  **Intelligent Product Matching for Reviews:**
+    *   When viewing reviews for a product from Torob/Esam, the AI searches Digikala.
+    *   It intelligently identifies the correct product ID even if the names are slightly different.
+    *   *Result:* You get the **correct reviews** for the exact model you are looking at.
+
+3.  **Smart Retry Strategy:**
+    *   If a search yields no results, the AI generates a **simplified search query** (removing extra adjectives, colors, etc.) and tries again.
+    *   *Result:* Higher success rate in finding products.
+
+*Note: If no API Key is provided, the extension works in "Standard Mode" using direct text matching and basic search.*
+
 ## Installation
 
 ### Chrome (Developer Mode)
@@ -52,17 +86,29 @@ To package the extension for submission:
 
 ```
 /
-├── manifest.json       # Extension configuration (MV3)
-├── _locales/           # Localization files (en, fa)
+├── manifest.json          # Extension configuration (MV3)
+├── _locales/              # Localization files (en, fa)
 ├── src/
-│   ├── background/
-│   │   └── background.js   # Service worker / Background script
-│   ├── content/
-│   │   ├── content.js      # Content script (UI injection & logic)
-│   │   └── content.css     # Styles for injected elements
-│   └── assets/
-│       ├── icon/           # Extension icons
-│       └── fonts/          # Fonts (if local)
+│   ├── background/        # Service Worker Logic
+│   │   ├── background.js  # Main entry point
+│   │   ├── handlers/      # Request handlers (price, review)
+│   │   ├── providers/     # API providers (Torob, Esam)
+│   │   └── services/      # External services (OpenAI)
+│   │
+│   ├── content/           # Content Scripts (UI Injection)
+│   │   ├── content.js     # Dynamic loader
+│   │   ├── content_main.js# Main logic entry
+│   │   ├── content.css    # Styles
+│   │   ├── modules/       # Shared UI & Logic (Toast, Modal)
+│   │   └── providers/     # Site-specific logic (Digikala, External)
+│   │
+│   ├── options/           # Options Page
+│   │   ├── options.html
+│   │   ├── options.js
+│   │   └── options.css
+│   │
+│   └── assets/            # Static Assets
+│       └── icon/          # Icons
 └── README.md
 ```
 

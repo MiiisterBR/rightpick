@@ -46,5 +46,11 @@
   ],
   "permissions": [
     "storage"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/content/*.js", "src/content/**/*.js"],
+      "matches": ["<all_urls>"]
+    }
   ]
 }

@@ -99,6 +99,15 @@ button:hover {
     background-color: #7b1fa2;
 }
 
+.btn-danger {
+    background-color: #f44336;
+    margin-top: 10px;
+}
+
+.btn-danger:hover {
+    background-color: #d32f2f;
+}
+
 .status {
     margin-top: 15px;
     text-align: center;
@@ -112,4 +121,17 @@ button:hover {
 
 .status.error {
     color: #f44336;
+}
+
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+#version {
+    font-size: 0.8rem;
+    color: #999;
+    font-family: monospace;
 }

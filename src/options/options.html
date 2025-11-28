@@ -16,6 +16,7 @@
             <label for="apiKey">کلید API چت‌جی‌پی‌تی (ChatGPT API Key):</label>
             <input type="password" id="apiKey" placeholder="sk-...">
             <p class="help-text">این کلید برای قابلیت‌های هوشمند آینده استفاده خواهد شد.</p>
+            <button id="deleteKeyBtn" class="btn-danger" style="display: none; margin-top: 10px;">حذف کلید API</button>
         </div>
 
         <div class="form-group">
@@ -28,6 +29,10 @@
 
         <button id="saveBtn">ذخیره تنظیمات</button>
         <div id="status" class="status"></div>
+        
+        <div class="footer">
+            <span id="version"></span>
+        </div>
     </div>
     <script src="options.js"></script>
 </body>
