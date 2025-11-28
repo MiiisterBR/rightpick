@@ -20,10 +20,10 @@ export function initExternalSite() {
         if (!isProductPage) return;
 
         // Generate Fingerprint
-        // Combine Title + URL + Main Image (if possible) + Price (if possible)
+        // Check Title and URL as requested
         const title = document.querySelector('h1') ? document.querySelector('h1').innerText : '';
         const url = window.location.href;
-        // Simple lightweight hash
+        
         const currentFingerprint = title + '|' + url;
 
         if (currentFingerprint !== lastFingerprint) {
@@ -40,7 +40,7 @@ export function initExternalSite() {
                  handleExternalSiteChanges();
             }
         }
-    }, 1000); // Check every 1 second (User asked for 3, but 1 is snappier and safe with this lightweight check)
+    }, 3000); // Check every 3 seconds as requested
 
     // Use MutationObserver for SPA/React sites
     const observer = new MutationObserver((mutations) => {

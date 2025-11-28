@@ -1,5 +1,35 @@
 # RightPick
+
+<p align="center">
+  <img src="src/assets/icon/icon128.png" alt="RightPick Logo" width="128">
+</p>
+
 A smart shopping assistant that checks product prices on Digikala and shows real Digikala user reviews while you browse on Torob and Esam helping you make the best possible choice.
+
+## Screenshots
+
+### Digikala (Price Comparison)
+<p align="center">
+  <img src="screenshot/digikala.png" width="45%" alt="Digikala Button">
+  <img src="screenshot/show-price-dijikala.png" width="45%" alt="Price Result">
+</p>
+
+### Torob (Digikala Reviews)
+<p align="center">
+  <img src="screenshot/torob.png" width="45%" alt="Torob Button">
+  <img src="screenshot/show-review-torob.png" width="45%" alt="Review Modal">
+</p>
+
+### Esam (Digikala Reviews)
+<p align="center">
+  <img src="screenshot/esam.png" width="45%" alt="Esam Button">
+  <img src="screenshot/show-review-esam.png" width="45%" alt="Review Modal">
+</p>
+
+### Options Page
+<p align="center">
+  <img src="screenshot/option.png" width="700" alt="Options Page">
+</p>
 
 ## Features
 
