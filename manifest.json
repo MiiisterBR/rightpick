@@ -6,7 +6,7 @@
   "default_locale": "fa",
   "browser_specific_settings": {
     "gecko": {
-      "id": "dk-price-checker-br@extension",
+      "id": "dk-price-checker-misterbr@extension",
       "strict_min_version": "140.0",
       "data_collection_permissions": {
         "required": ["none"]
