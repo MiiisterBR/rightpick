@@ -27,10 +27,8 @@
     {
       "matches": [
         "*://*.digikala.com/product/*",
-        "*://*.torob.com/*",
-        "*://*.esam.ir/*",
-        "*://esam.ir/*",
-        "*://torob.com/*"
+        "*://*.torob.com/p/*",
+        "*://*.esam.ir/item/*"
       ],
       "js": ["src/content/content.js"],
       "css": ["src/content/content.css"]
